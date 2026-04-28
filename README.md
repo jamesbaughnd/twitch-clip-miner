@@ -3,6 +3,7 @@
 AI that watches your Twitch VODs so you can have a f**kin' yank—uhh, i mean, so you don't have to!
 
 *Automagically* (BOOOO) turn hours of Twitch VODs into bite‑sized, viral‑ready clips — with multi-signal detection, automatic GPU acceleration, and drop-dead, sexy af, synth-wave-vibe-ahh command-line experience.
+###### the emojis are cute, shut up, bitch
 
 ## ✨ Features
 - **Multi‑signal detection** – combines audio energy, transcribed speech, chat velocity, and facial reactions for picking the best clips.
@@ -14,21 +15,21 @@ AI that watches your Twitch VODs so you can have a f**kin' yank—uhh, i mean, s
 
 ## 🚀 Quickstart (for my impatient guys/gals/enbys)
 ### ~ Prerequisites ~
-- **Python 3.10–3.12** - (3.12 recommended)
-- **FFmpeg** - (must be in your PATH (details in [Noob Guide](#Noob_Guide.md) if you're just a babby)
-- **TwitchDownloaderCLI** (optional, for downloading chat) – download the latest release and place `TwitchDownloaderCLI.exe` into the `tools/` folder.
-- **whisper.cpp** - optional, but HIGHLY recommended for AMD GPU transcription (unless you have a small penar, of course) – see [Advanced GPU Setup](#advanced-gpu-setup).
+- [**Python 3.10–3.12**](https://www.python.org/downloads/release/python-3120/) - 3.12 recommended
+- [**FFmpeg**](https://ffmpeg.org/download.html) - Must be in your PATH (details in [Noob Guide](docs/NOOB_GUIDE.md) if you're just a babby)
+- [**TwitchDownloaderCLI**](https://github.com/lay295/TwitchDownloader/releases) - *optional* - (for downloading Twitch VOD chat) – download the latest release and place `TwitchDownloaderCLI.exe` into your `tools/` folder
+- [**whisper.cpp** (direct download)](https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.en.bin) - *optional* - but HIGHLY recommended for AMD GPU transcription (unless you have a small penar, of course) – see [Advanced GPU Setup](#-advanced-gpu-setup)
 
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/jamesbaughnd/twitch-clip-miner.git
-cd twitch-clip-miner
+cd twitch-clip-miner          # set your console to the folder path
 ```
 
 ### 2. Create a virtual environment and install
 ```bash
-python -m venv venv
-venv\Scripts\activate         # env\Scripts\Activate.ps1 in Windows PowerShell
+python -m venv venv           # Creates the environment
+venv\Scripts\activate         # venv\Scripts\Activate.ps1 in Windows PowerShell
 source venv/bin/activate      # Linux/macOS
 
 pip install -r requirements.txt
@@ -37,14 +38,14 @@ pip install -r requirements.txt
 ```bash
 python main.py "https://www.twitch.tv/videos/yourvidhere"
 ```
->(or simply `python main.py` to be prompted for a URL or local video location! Also cool guys just use *py*)
+>(or simply `python main.py` to be prompted for a URL or local video location! Also, cool guys just use *py*)
 
 
 ## ⚙️ Configuration
 All settings live in config.yaml. The most important:
 ```yaml
 detector:
-  clip_padding: 5.0          # seconds before/after a peak (15 = 30 second clip)
+  clip_padding: 5.0          # seconds before/after a peak (15 = a 30 second clip)
   peak_prominence: 0.8       # lower = more peaks
   min_score: 0.5             # absolute threshold (not a percentage)
   weight_loudness: 0.35
@@ -62,7 +63,7 @@ transcription:
   device: auto
   compute_type: auto
   ```
-See the [Cheatsheet](#cheatsheet.md) for a full explanation of scoring and tuning. BUT if you don't want to mess with the settings, the default settings will already get you 10 usable clips!
+See the [Developer (Nerd) Section](#for-developers-how-the-scoring-works.md) for a full explanation of scoring and tuning. BUT if you don't want to mess with the settings, the default settings will already get you 10 usable clips!
 
 
 ## 📂 Output
@@ -80,7 +81,7 @@ python main.py [vod_url] [--force] [--max-clips N] [--min-score X] [--vertical] 
 |`--max-clips N`   |	Override the number of clips to export |
 |`--min-score X`   |	Set a custom minimum clip score |
 |`--vertical`      |	Force vertical 9:16 output |
-|`--language LANG` |	Transcription language - en, de, fr, etc. (that's not one dummy)|
+|`--language LANG` |	Transcription language - en, de, fr, etc. (that last one's not a language dummy)|
 |`--output DIR`    |	Custom base directory for clips|
 
 ---
@@ -98,20 +99,18 @@ transcription:
     executable: tools/whisper-cli.exe
     model: models/ggml-base.en.bin
 ```
-For detailed build instructions, see the [Noob’s Guide]().
+> For detailed build instructions, see the [Noob Guide](docs/NOOB_GUIDE.md).
 
 
 ### 🤔 Troubleshooting
-#### **"fer" library not installed / visual scoring won’t start** 
-- Install fer==22.0.1 and setuptools==68.2.2 (already in requirements). If you get pkg_resources errors, make sure you’re using Python 3.12 and those exact versions.
-
-#### **Chat download fails**
-- Ensure TwitchDownloaderCLI.exe is in tools/ or on your PATH.
-#### **Whisper progress lines flood the terminal**
- - They’re redirected to a debug logger – you won’t see them in normal use. If you need them, check whisper_progress.log.
-
-#### **GPU not detected for transcription**
- - Run the manual test in the Noob’s Guide. Usually you need to install the Vulkan Runtime or update your AMD drivers.
+- #### ***"fer" library not installed / visual scoring won’t start***
+  - -> Install fer==22.0.1 and setuptools==68.2.2 (already in requirements). If you get pkg_resources errors, make sure you’re using Python 3.12 and those exact versions.
+- #### ***Chat download fails***
+  - -> Ensure TwitchDownloaderCLI.exe is in tools/ or on your PATH.
+- #### ***Whisper progress lines flood the terminal***
+  - -> They’re redirected to a debug logger – you won’t see them in normal use. If you need them, check whisper_progress.log.
+- #### ***GPU not detected for transcription***
+  - -> Run the manual test in the Noob’s Guide. Usually you need to install the Vulkan Runtime or update your AMD drivers.
 ---
 ---
 ## 🧭 Roadmap
@@ -126,20 +125,15 @@ For detailed build instructions, see the [Noob’s Guide]().
 - [ ] AI‑powered hashtag suggestions based on clip content
 - [ ] Save and reuse custom hashtag sets, fine-tuned for per-platform performance
 
-### Beyond v2.0 - Multi-Media Manager God?
+### Beyond v2.0 - Pro Multi-Media Manager, God, Uber-God?
 - [ ] Batch‑process multiple VODs (queuing, scheduling, posting)
 - [ ] One‑click upload to TikTok, YouTube, Instagram, and Twitter
 - [ ] Auto‑chapter detection for long streams
 - [ ] Plugins / signals SDK for community contributions
 - [ ] Essentially a full-blown social media manager
-
---- 
 ---
-# If you think this is a neat tool, consider supporting me by [buying me a coffee!! ☕](https://ko-fi.com/jamesbaughnd)
 ---
->
-### 📜 License
-MIT – see [LICENSE](#license.txt).
+# If you think this is a neat tool, consider [buying me a coffee!!☕](https://ko-fi.com/jamesbaughnd)
 
 ---
 ---
@@ -160,9 +154,9 @@ The detector listens for **loudness peaks** – sudden jumps in audio energy. Ea
 Each signal returns a **float** that can be arbitrarily large (no fixed maximum). Those floats are multiplied by configurable weights and added together:
 
 ```
-final_score = w_loud · L  +  w_trans · T  +  w_chat · C  +  w_vis · V
+final_score = w_loud · L  +  w_trans · T  +  w_chat · C  +  w_vis · V  
 ```
-
+###### ewww math, gross, noty
 - **'min_score' is NOT a percentage** – it’s an absolute threshold on this sum.  
   - Example: a timeframe with a huge loudness spike (prominence 4.0), one hype word (1.5), and a normal chat (0.0) might get  
   `0.35*4.0 + 0.25*1.5 + 0.2*0.0 + 0.2*0.8 = 2.335`. 
@@ -189,6 +183,7 @@ No other code changes needed – the rest of the pipeline (chunking, merging, ex
 Pull requests are welcome! Please keep new signal modules **optional** (graceful fallback if a dependency is missing) and add a flag in `config.yaml` so users can enable/disable them. The existing signals are great templates – especially `vision.py` for caching and `chat_parser.py` for external tool integration.
 
 ---
-
 [**📜MIT License**](LICENSE.txt)
-– do whatever you like, just plz your god king lord credit (and the other tool creators you use!)
+– do whatever you like, just plz give your god king overlord credit (and the other tool creators you use!)
+
+[**^ BACK TO THE TOP ^**](#-twitch-ai-clip-miner)
