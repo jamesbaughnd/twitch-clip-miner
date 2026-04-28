@@ -14,8 +14,8 @@ venv312/
 env/
 
 # Project Data
-!data/.gitkeep
 data/
+!data/.gitkeep
 src/gui_review.py
 review.py
 test.py
@@ -27,8 +27,8 @@ tools/TwitchDownloaderCLI.exe
 tools/SDL2.dll.unuse
 tools/whisper-cli.exe.old
 !tools/.gitkeep
-!models/.gitkeep
 models/
+!models/.gitkeep
 
 # Docs
 docs/
