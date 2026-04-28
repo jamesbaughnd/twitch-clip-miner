@@ -17,6 +17,8 @@ env/
 data/
 !data/.gitkeep
 src/gui_review.py
+review.py
+test.py
 
 # Models & Executables
 models/
