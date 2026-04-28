@@ -14,24 +14,27 @@ venv312/
 env/
 
 # Project Data
-data/
 !data/.gitkeep
+data/
 src/gui_review.py
 review.py
 test.py
 
 # Models & Executables
-models/
 tools/whisper-cli.exe
 tools/*.dll
 tools/TwitchDownloaderCLI.exe
+tools/SDL2.dll.unuse
+tools/whisper-cli.exe.old
 !tools/.gitkeep
 !models/.gitkeep
+models/
 
 # Docs
 docs/
 !docs/cheatsheet.md
 !docs/.gitkeep
+!docs/NOOB_GUIDE.md
 
 # IDE
 .vscode/
