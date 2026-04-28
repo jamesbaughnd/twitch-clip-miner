@@ -1,0 +1,42 @@
+[project]
+name = "twitch-clip-miner"
+version = "1.0.0"
+description = "AI that watches your Twitch VODs so you don't have to."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10,<3.13"
+authors = [
+    {name = "JamesBaughnd"}
+]
+keywords = ["twitch", "clips", "ai", "vod", "streamer-tools"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "yt-dlp>=2024.04.30",
+    "faster-whisper>=1.0,<2",
+    "rich>=13.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "moviepy>=1.0",
+    "pyyaml>=6.0",
+    "tqdm>=4.65",
+    "fer==22.0.1",
+    "setuptools==68.2.2",
+    "sv_ttk>=2.0",
+    "opencv-python>=4.8",
+    "Pillow>=10.0",
+]
+
+[projects.scripts]
+clip-miner = "main:main"

@@ -1,0 +1,63 @@
+
+
+# Detection paramters
+
+detector:
+   clip_padding: 15.0           # seconds to extend before/after a peak to form clip window
+   peak_prominence: 0.6         # Prominence relative to RMS std dev (lower = more peaks)
+   peak_distance: 1.0           # seconds minimum between peaks
+   weight_loudness: 0.4         # adjust so total roughly 1.0
+   weight_transcript: 0.6     
+   visual_enabled: false
+   weight_chat: 0.4
+   weight_visual: 0.4
+   min_score: 0.7
+
+   visual:
+      sample_rate: 2.5            # seconds between frames (lower = slower, more accurate)
+      max_samples: 8              # maximum frames to sample per clip
+      use_mtcnn: false            # false = Haar cascade (fast), true = MTCNN (accurate)
+
+   # Transcription scoring
+   hype_words:
+      - "yoyoyoyoyo"
+      - "BRO"
+      - "let's go"
+      - "lets go"
+      - "lets gooooo"
+      - "oh shit!"
+      - "what the fuck!"
+      - "yooooooooooooo"
+      - "goddamnit bro!"
+      - "AHHHHH"
+      - "shit!"
+      - "balls!"
+      - "bro!"
+   laughter_patterns:
+      - "ha ha"
+      - "haha"
+      - "lol"
+      - "lul"
+      - "kek"
+      - "xd"
+
+transcription:
+   backend: whisper-cpp        # auto, faster-whisper, whisper-cpp
+   model_size: auto     # auto, tiny, base, small, medium, large-v3
+   device: auto         # auto, cpu, cuda
+   compute_type: auto   # auto, int8, float16, int8_float16
+   language: en
+   whisper_cpp:
+      #executable: tools/whisper-cli.exe    # path to whisper-cli binary
+      model: models/ggml-small.en.bin      # path to ggml model
+   whisper_cli: C:/Programming/Projects/Python/twitch-clipper/tools/whisper-cli.exe
+
+output:
+   vertical: false
+   max_clips: 3
+
+chunking:
+   enabled: true
+   chunk_duration: 900
+   overlap: 30
+   long_threshold: 1800

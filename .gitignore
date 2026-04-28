@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+venv312/
+.venv312/
+env/
+
+# Project Data
+data/
+!data/.gitkeep
+src/gui_review.py
+
+# Models & Executables
+models/
+tools/whisper-cli.exe
+tools/*.dll
+tools/TwitchDownloaderCLI.exe
+!tools/.gitkeep
+!models/.gitkeep
+
+# Docs
+docs/
+!docs/cheatsheet.md
+!docs/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,21 @@
+# Core
+yt-dlp>=2024.04.30
+faster-whisper>=1.0,<2
+rich>=13.0
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+librosa>=0.10
+soundfile>=0.12
+moviepy>=1.0
+pyyaml>=6.0
+tqdm>=4.65
+
+# Visual scoring (optional but included for full functionality)
+fer==22.0.1
+setuptools==68.2.2
+opencv-python>=4.8
+
+# GUI (optional for the future)
+sv_ttk>=2.0
+Pillow>=10.0
