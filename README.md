@@ -135,11 +135,11 @@ For detailed build instructions, see the [Noob’s Guide]().
 
 --- 
 ---
-# If you think this is a neat tool, consider supporting me by [buying me a coffee!! ☕]()
+# If you think this is a neat tool, consider supporting me by [buying me a coffee!! ☕](https://ko-fi.com/jamesbaughnd)
 ---
 >
 ### 📜 License
-MIT – see [LICENSE]().
+MIT – see [LICENSE](#license.txt).
 
 ---
 ---
